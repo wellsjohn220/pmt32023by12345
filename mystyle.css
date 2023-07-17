@@ -164,4 +164,10 @@
       -webkit-transform: translateY(0%);
     }
   }
+  a {
+    font-weight: bold;
+  }
+  a:hover {
+    color:lime;
+  }
   
