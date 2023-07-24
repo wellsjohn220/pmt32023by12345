@@ -153,6 +153,8 @@
 
   .navbar-nav li a:hover,
   .navbar-nav li.active a {
+    font:18px;
+    font-family: Montserrat, sans-serif;
     color: #f4511e !important;
     background-color: #fff !important;
   }
@@ -240,10 +242,26 @@
     background-repeat: no-repeat;
     background-position: center;
   }
-.myimage {
+
+  .myimage {
      border-radius: 25px;
-    border: 3px solid red;
+    border: 3px solid #9900cc;
     padding: 20px; 
     width: 70%;
   }
+  .open .dropdown-toggle {
+    color: #fff;
+    background-color: #555 !important;
+    font-size:larger;
   }
+  .dropdown-menu li a {
+    color: #000 !important;
+  }
+  .dropdown-menu li a:hover {
+    background-color: #f4511e !important;
+    color: #fff !important;
+  }
+  .dropdown {
+    font-size:larger;
+  }
+  
