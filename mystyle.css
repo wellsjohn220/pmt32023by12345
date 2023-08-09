@@ -270,4 +270,13 @@
    padding: 20px; 
    
  }
+ .material-icons {
+  font-size:36px;
+  margin: -20px 10px 20px 0;
+  color: red;
+ }
+ #msg {
+  color: lime; font-weight: bold; display: block;
+}
+ 
   
