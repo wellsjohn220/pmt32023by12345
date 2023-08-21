@@ -47,8 +47,9 @@
 </nav>
 
 <div class="jumbotron text-center">
+  <center>
   <h1>Project Management T3-2023</h1> 
-  <p>Powered by 12345 John</p> 
+  <p>Powered by 12345 John</p> </center>
   <div class="form-group row">
     <div class="col-xs-3"> 
     </div>
@@ -125,6 +126,7 @@
 
 <!-- Container (Services Section) -->
 <div id="services" class="container-fluid text-center bg-grey">
+  <center>
   <h2>SERVICES</h2>
   <h4>What we offer</h4>
   <br>
@@ -143,7 +145,7 @@
       <span class="glyphicon glyphicon-lock logo-small"></span>
       <h4>JOB DONE</h4>
       <p>Lorem ipsum dolor sit amet..</p>
-    </div>
+    </div>  
   </div>
   <br><br>
   <div class="row slideanim">
@@ -162,14 +164,15 @@
       <h4 style="color:#303030;">HARD WORK</h4>
       <p>Lorem ipsum dolor sit amet..</p>
     </div>
+  </center>
   </div>
 </div>
 
 <!-- Container (Portfolio Section) -->
-<div id="portfolio" class="container-fluid text-center"><div style="flex-flow:row;">
+
+<div id="portfolio" class="container-fluid text-center" style="text-align: center;"><div style="flex-flow:row;">
   <i class="material-icons">person</i> <h2>Portfolio</h2>
-</div>
- 
+</div> 
   <br>
   <h4 class="highlight">What we have created</h4>
   <div class="row text-center slideanim">
@@ -196,6 +199,7 @@
     </div>
   </div>
   <div  id="slide"></div><br><br>
+
 <!-- Container (Slide Section) -->  
 <div class="container-fluid text-center bg-grey">
   <h2>I love project management course</h2>
@@ -255,7 +259,7 @@
 
 <!-- Container (Pricing Section) -->
 <div id="pricing" class="container-fluid">
-  <div class="text-center">
+  <div style="text-align: center;">
     <h2><i class="material-icons">sentiment_very_satisfied</i>Pricing</h2>
     <h4>Choose a payment plan that works for you</h4>
   </div>
@@ -322,7 +326,7 @@
 
 <!-- Container (Contact Section) -->
 <div id="contact" class="container-fluid bg-grey">
-  <h2 class="text-center">CONTACT</h2>
+  <h2 style="text-align: center;" id="msg2">CONTACT</h2>
   <div class="row">
     <div class="col-sm-5">
       <p>Contact us and we'll get back to you within 24 hours.</p>
@@ -331,22 +335,33 @@
       <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
     </div>
     <div class="col-sm-7 slideanim">
-        <div class="row">
+        <div class="row">        
         <div class="col-sm-3 form-group"></div>
         <div class="col-sm-9 form-group">
-            <!-- modify this form HTML and place wherever you want your form -->
-            <!-- https://www.youtube.com/watch?v=0X0kovjzLrw -->
-            <form action="https://formspree.io/f/xaygeylp" method="POST">
-            <label>Your email:</label>
-            <input class="form-control" type="email" name="email">
-            
-            <label> Your message: </label>
-            <textarea class="form-control" name="message"></textarea>
-           
-            <!-- your other form fields go here -->
-            <button class="btn btn-default btn-lg" 
-            type="submit"
-            style="margin-top: 15px;">Send Contact Details</button>
+          <form name="contact-to-google-sheet" >
+            <div class="row">
+              <div class="col-sm-4 form-group">
+                <input class="form-control" id="name" name="Name" placeholder="Name" type="text" required>
+              </div>
+              <div class="col-sm-8 form-group">
+                <input class="form-control" id="email" name="Email" placeholder="Email" type="email" required>
+              </div>
+            </div>
+            <textarea class="form-control" id="comments" name="Comment" placeholder="Comment" rows="5"></textarea><br>
+            <div class="row">
+              <div class="col-sm-6 form-group">
+              <select name="Continent" id="Continent">
+                <option>Africa</option>
+                <option>Asia</option>
+                <option>Australia</option>
+                <option>North America</option>
+                <option>South America</option>
+              </select>  
+              </div>
+              <div class="col-sm-6 form-group">
+                <button class="btn btn-default pull-right" type="submit"><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;&nbsp;Contact info Send by 12345</button>
+              </div>
+            </div>
             </form>
         </div>
       </div>
@@ -379,6 +394,22 @@
               msg.innerHTML = ""
           }, 5000)
           form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+
+  const scriptURL2 = 'https://script.google.com/macros/s/AKfycbzthZqwiLItCX8sTf410MfH1AyCnCkmIC4rqqRpXX_Dx4QuDsH6tsOZ73qcZdrzV6WpYQ/exec'
+  const form2 = document.forms['contact-to-google-sheet']
+  const msg2 = document.getElementById("msg2")
+  form2.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL2, { method: 'POST', body: new FormData(form2)})
+      .then(response => {
+          msg2.innerHTML = "Thanks for your contact details by 12345 John"
+          setTimeout(function(){
+              msg2.innerHTML = "Contact"
+          }, 5000)
+          form2.reset()
       })
       .catch(error => console.error('Error!', error.message))
   })
