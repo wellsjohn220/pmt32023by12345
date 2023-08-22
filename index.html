@@ -46,7 +46,7 @@
   </div>
 </nav>
 
-<div class="jumbotron text-center">
+<div class="jumbotron text-center" style="height: 400px;">
   <center>
   <h1>Project Management T3-2023</h1> 
   <p>Powered by 12345 John</p> </center>
@@ -169,7 +169,6 @@
 </div>
 
 <!-- Container (Portfolio Section) -->
-
 <div id="portfolio" class="container-fluid text-center" style="text-align: center;"><div style="flex-flow:row;">
   <i class="material-icons">person</i> <h2>Portfolio</h2>
 </div> 
@@ -255,7 +254,6 @@
     </a>
   </div>
 </div>
-
 
 <!-- Container (Pricing Section) -->
 <div id="pricing" class="container-fluid">
@@ -349,7 +347,7 @@
             </div>
             <textarea class="form-control" id="comments" name="Comment" placeholder="Comment" rows="5"></textarea><br>
             <div class="row">
-              <div class="col-sm-6 form-group">
+              <div class="col-sm-6 form-group" style="text-align: left;">
               <select name="Continent" id="Continent">
                 <option>Africa</option>
                 <option>Asia</option>
@@ -362,7 +360,7 @@
                 <button class="btn btn-default pull-right" type="submit"><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;&nbsp;Contact info Send by 12345</button>
               </div>
             </div>
-            </form>
+          </form>
         </div>
       </div>
     </div>
@@ -381,7 +379,7 @@
 <!-- Load external JavaScript -->
 <script src="index.js"></script> <script src="loading.js"></script>
 <script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbxKAJFu4cNheBCr0ax6bpgr5jRXSwXOzAlst9at7ZqLie6P6ToPAiWslTHsRw72Q6NfSA/exec'
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxSM0iPhIVg8hM8hL9oP4c9WetZA5Wcu4yFaymXGwxqq13mYijf0HdKtmPGKAbKNo-fEg/exec'
   const form = document.forms['submit-to-google-sheet']
   const msg = document.getElementById("msg")
 
@@ -398,18 +396,18 @@
       .catch(error => console.error('Error!', error.message))
   })
 
-  const scriptURL2 = 'https://script.google.com/macros/s/AKfycbzthZqwiLItCX8sTf410MfH1AyCnCkmIC4rqqRpXX_Dx4QuDsH6tsOZ73qcZdrzV6WpYQ/exec'
-  const form2 = document.forms['contact-to-google-sheet']
+  const scriptURL2 = 'https://script.google.com/macros/s/AKfycbwNJx9vcSKmLwQ-kcX43OMsCTinANNLscJQ1TguBi8Th1YbXgmvnudMXeGssdIBl9I0rQ/exec'
+  const ContactForm = document.forms['contact-to-google-sheet']
   const msg2 = document.getElementById("msg2")
-  form2.addEventListener('submit', e => {
+  ContactForm.addEventListener('submit', e => {
     e.preventDefault()
-    fetch(scriptURL2, { method: 'POST', body: new FormData(form2)})
+    fetch(scriptURL2, { method: 'POST', body: new FormData(ContactForm)})
       .then(response => {
           msg2.innerHTML = "Thanks for your contact details by 12345 John"
           setTimeout(function(){
               msg2.innerHTML = "Contact"
           }, 5000)
-          form2.reset()
+          ContactForm.reset()
       })
       .catch(error => console.error('Error!', error.message))
   })
