@@ -281,11 +281,7 @@
 label {
   text-align: left;
 }
-#msg {
-  color:lime;
-  font-weight: bold;
-  margin-top: 120px;
-}
+
 #contactaddress {
   font-weight: bold;
   font-size:medium;
